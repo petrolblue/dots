@@ -1,0 +1,35 @@
+#!/bin/sh
+## hostname
+read -r host < /proc/sys/kernel/hostname
+
+## os (distro)
+read -r kernel < /proc/sys/kernel/osrelease
+. /etc/os-release
+
+## wm
+  [ ! "$wm" ] && [ "$DISPLAY" ] && command -v xprop >/dev/null && {
+    id=$(xprop -root -notype _NET_SUPPORTING_WM_CHECK)
+    id=${id##* }
+    wm=$(xprop -id "$id" -notype -len 100 -f _NET_WM_NAME 8t |
+      grep '^_NET_WM_NAME' | cut -d\" -f 2)
+  }
+
+## kernel
+        read -r _ _ version _ < /proc/version
+        ke=${version%%-*}
+
+## colors
+magenta='[35m'
+cyan='[36m'
+white='[37m'
+reset='[0m'
+
+## output
+printf '%s\n' "
+  ${cyan}os${white} ~ ${PRETTY_NAME}
+  ${cyan}sh${white} ~ ${SHELL##*/}
+  ${cyan}wm${white} ~ ${wm}
+  ${cyan}kr${white} ~ ${ke}
+
+  ʕ•ᴥ•ʔ welcome to ${magenta}${host}${reset}, ${magenta}${USER}${reset}
+"

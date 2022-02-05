@@ -1,0 +1,25 @@
+foreground            #000000
+background            #ffffff
+selection_foreground  #000000
+selection_background  #000000
+url_color             #000000
+cursor                #000000
+cursor_shape          beam
+window_padding_width  40
+
+color0                #353535
+color1                #222222
+color2                #2e2e2e
+color3                #3d3d3d
+color4                #383838
+color5                #545454
+color6                #666666
+color7                #383838
+color8                #eeeeee
+color9                #222222
+color10               #2e2e2e
+color11               #3d3d3d
+color12               #383838
+color13               #545454
+color14               #666666
+color15               #ffffff

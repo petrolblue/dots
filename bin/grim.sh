@@ -1,0 +1,8 @@
+#!/bin/bash
+if [[ $1 = "--full" ]]; then
+  grim -g "$(slurp)" - | tee $HOME/usr/screens/$(date +%F-%H%M%S)_grim.png | wl-copy
+fi
+
+if [[ $1 = "--part" ]]; then
+	grim -g "$(slurp)" - | tee $HOME/usr/screens/$(date +%F-%H%M%S)_grim.png | wl-copy
+fi

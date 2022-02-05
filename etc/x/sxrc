@@ -1,0 +1,5 @@
+xrandr -r 144 &
+picom &
+feh --no-fehbg --bg-scale ~/etc/openbox/bg.jpg &
+xrdb -merge ~/.Xresources &
+exec openbox

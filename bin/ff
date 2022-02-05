@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+# - ff
+#
+# firefox profile stuff
+#
+
+case $1 in
+	*)
+		export HOME="/home/x/"
+		firefox --profile "/home/x/usr/local/share/www/rice/"
+		;;
+esac
