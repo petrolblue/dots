@@ -1,39 +1,40 @@
-set $mod Mod1
+set $mod Mod4
 
 default_border none
 floating_modifier $mod normal
 
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec foot
 bindsym $mod+w exec ff
+bindsym $mod+p exec pick.sh
+bindsym $mod+t exec time.sh
+bindsym $mod+d exec rofi -show drun
+bindsym $mod+l exec swaylock -c 141414
 bindsym $mod+q kill
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+q exit
-bindsym $mod+Shift+s exec "grim.sh --part"
+bindsym $mod+Shift+s exec "shot --part"
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
 bindsym $mod+3 workspace number 3
 bindsym $mod+4 workspace number 4
-bindsym $mod+5 workspace number 5
-bindsym $mod+6 workspace number 6
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
 bindsym $mod+Shift+3 move container to workspace number 3
 bindsym $mod+Shift+4 move container to workspace number 4
-bindsym $mod+Shift+5 move container to workspace number 5
-bindsym $mod+Shift+6 move container to workspace number 6
 bindsym $mod+b splith
 bindsym $mod+v splitv
 bindsym $mod+s floating toggle
 bindsym $mod+f fullscreen
 
 gaps inner 20
-gaps outer 20
+gaps outer 100
 
-client.focused    #ddddddd0 #ddddddd0 #ddddddd0 #ddddddd0 #ddddddd0
-client.unfocused  #dddddd70 #dddddd70 #dddddd70 #dddddd70 #dddddd70  
-client.urgent     #dddddd70 #dddddd70 #dddddd70 #dddddd70 #dddddd70
+client.focused            #141414bf #141414bf #141414bf #141414bf #141414bf
+client.unfocused          #141414a0 #141414a0 #141414a0 #141414a0 #141414a0
+client.urgent             #141414a0 #141414a0 #141414a0 #141414a0 #141414a0
+client.focused_inactive   #141414a0 #141414a0 #141414a0 #141414a0 #141414a0
 
-default_border pixel 12
+default_border pixel 10
 
 input type:keyboard {
     repeat_delay 200
@@ -41,4 +42,8 @@ input type:keyboard {
     xkb_layout de
 }
 output * mode 2560x1440@143.999Hz
-output * bg ~/etc/openbox/bg.jpg fill
+output * bg ~/etc/sway/bg.jpg fill
+exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id dunst
+exec --no-startup-id ch
+exec --no-startup-id foot --server

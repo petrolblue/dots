@@ -1,0 +1,119 @@
+configuration {
+  icon-theme: "Papirus-Dark";
+  show-icons: false;
+  modi: "drun";
+}
+
+@theme "/dev/null"
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+* {
+  bg: #e4e4e4;
+  fg: #444444;
+  selbg: #f4f4f4;
+  selfg: #222222;
+
+  background-color: @bg;
+  text-color: @fg;
+  selected-normal-foreground: @selfg;
+  normal-foreground: @fg;
+  selected-normal-background: @selbg;
+  normal-background: @bg;
+  border-color: @selbg;
+  font: "PragmataProMonoLiga Nerd Font 10";
+  margin: 3px;
+  padding: 7px;
+  border: 0px;
+}
+
+window {
+  location: center;
+  anchor: center;
+  height: 30%;
+  width: 30%;
+  border: 0px;
+  orientation: horizontal;
+  children: [mainbox];
+  padding: 0px;
+}
+
+mainbox {
+  padding: 10px;
+  margin: 0px;
+}
+
+inputbar {
+  children: [entry];
+}
+
+listview {
+  dynamic: true;
+  cycle: true;
+  scrollbar: false;
+}
+
+element {
+  padding: 1px;
+}
+
+element-icon {
+  size: 22;
+  vertical-align: 1;
+  horizontal-align: 1;
+}
+
+entry {
+  text-color: @normal-foreground;
+  vertical-align: 1;
+  padding: 1px;
+}
+
+element normal.normal {
+  background-color: @normal-background;
+  text-color: @normal-foreground;
+}
+
+element normal.urgent {
+  background-color: @urgent-background;
+  text-color: @urgent-foreground;
+}
+
+element normal.active {
+  background-color: @active-background;
+  text-color: @active-foreground;
+}
+
+element selected.normal {
+  background-color: @selected-normal-background;
+  text-color: @selected-normal-foreground;
+  font: "FiraCode Nerd Font 10";
+}
+
+element selected.urgent {
+  background-color: @selected-urgent-background;
+  text-color: @selected-urgent-foreground;
+}
+
+element selected.active {
+  background-color: @selected-active-background;
+  text-color: @selected-active-foreground;
+}
+
+element alternate.normal {
+  background-color: @normal-background;
+  text-color: @normal-foreground;
+}
+
+element alternate.urgent {
+  background-color: @urgent-background;
+  text-color: @urgent-foreground;
+}
+
+element alternate.active {
+  background-color: @active-background;
+  text-color: @active-foreground;
+}

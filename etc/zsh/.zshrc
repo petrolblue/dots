@@ -1,22 +1,15 @@
-#             _                
-#    _______| |__  _ __ ___ 
-#   |_  / __| '_ \| '__/ __|
-#  _ / /\__ \ | | | | | (__ 
-# (_)___|___/_| |_|_|  \___|
-#                           
-#  By petrolblue (based on Druskus's config)            
-#
-
 # History in cache directory:
 HISTSIZE=50000
 SAVEHIST=50000
 HISTFILE="$XDG_CACHE_HOME"/zsh/history
 
+autoload -U colors && colors
+
 # Prompt
-PROMPT="%~ > "
+PS1="%{$fg[blue]%}%(5~|%-1~/.../%3~|%4~)%{$reset_color%} %{$fg[black]%}> %{$reset_color%}"
 
 # Aliases
-alias l="ls -la"
+alias l="ls -la --color=auto"
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -45,5 +38,3 @@ autoload -Uz _zinit
 
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
-
-# vim:foldmarker=foldstart,foldend

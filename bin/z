@@ -1,0 +1,22 @@
+  z() {
+      __zfile=/tmp/.zfile-$$
+
+      ! read -r _ 2>/dev/null < "$__zfile" ||
+          while read -r __zhist; do
+              unset __zmat
+
+              for __zarg do case $__zhist in *"$__zarg"*)
+                  __zmat=$((__zmat + 1))
+              esac done
+
+              case $__zmat in "$#")
+                  cd "$__zhist" ||:
+                  return
+              esac
+          done < "$__zfile"
+
+      ! cd "${1:-"$HOME"}" ||
+          printf '%s\n' "$PWD" >> "$__zfile"
+
+      unset __zfile __zarg __zmat
+  }

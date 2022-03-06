@@ -2,7 +2,7 @@
 export \
 	XDG_DATA_HOME="$HOME/usr/local/share" \
 	XDG_CONFIG_HOME="$HOME/etc/" \
-	XDG_CACHE_HOME="$HOME/usr/local/share/"
+	XDG_CACHE_HOME="$HOME/var"
 
 # ez
 var="${XDG_DATA_HOME:-$HOME/usr/local/share}"
@@ -13,14 +13,14 @@ export \
 	XRESOURCES="$etc/x/xres"
 
 # path
-export PATH=$PATH:"$HOME/usr/bin/"
+export PATH=$PATH:"$HOME/bin/"
 export PATH=$PATH:"$HOME/var/python/bin/"
 
 # programs
 export \
-	TERM="kitty" \
-	TERMINAL="kitty" \
-	EDITOR="vim" \
+	TERM="foot" \
+	TERMINAL="foot" \
+	EDITOR="nvim" \
 	READER="zathura" \
 	VISUAL="$EDITOR" \
 	BROWSER="firefox" \

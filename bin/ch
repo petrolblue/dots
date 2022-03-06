@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# - ch
+#
+# clean home
+# automatic dir removal
+#
+
+[ "$(pgrep -x ch)" = "$$" ] || exit 1
+
+while :; do
+	set --
+	for i in \
+		"$HOME/.pki" \
+		"$HOME/.icons" \
+		"$HOME/.cache" \
+		"$HOME/.local" \
+		"$HOME/.config" \
+		"$HOME/.mozilla"; do
+		[ -e "$i" ] && set -- "$@" "$i"
+	done
+	[ "$1" ] && rm -rf -- "$@"
+	sleep 60
+done
+
