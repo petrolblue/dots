@@ -1,0 +1,10 @@
+dots
+====
+
+This repo contains my system configuration for Linux/BSD
+
+Dependencies:
+
+  * X11 + all X11 apps
+  * neovim
+  * LLVM
